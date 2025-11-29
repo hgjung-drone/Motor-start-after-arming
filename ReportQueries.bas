@@ -69,7 +69,7 @@ Public Sub MakeFlightLogTable()
     ' 2. [1단계] 기본 데이터로 테이블 생성
     ' '최근안전성인증일'을 포함한 핵심 필드로 테이블을 우선 생성합니다.
     sql = "SELECT " & _
-          "A.기종, A.종류, A.형식, A.신고번호, A.자체중량, A.최대이륙중량, A.최근안전성인증일, " & _
+          "A.기종, A.종류, A.형식, A.신고번호, A.자체중량, A.최대이륙중량, A.[최근안전성인증일], " & _
           "T.이름 AS 교육생성명, T.ID AS 교육생내부ID, F.교육생ID, " & _
           "F.교육일 AS 일자, '전남 나주' AS 비행장소, " & _
           "F.교육시작시간 AS 이륙시간, F.교육종료시간 AS 착륙시간, " & _
@@ -215,7 +215,7 @@ Public Sub MakeFlightExperienceTable()
           "T.교육과정ID, T.과정명, " & _
           "T.일자, " & _
           "First(T.기종) AS 기종, First(T.형식) AS 형식, First(T.신고번호) AS 신고번호, " & _
-          "First(T.최근안전성인증일) AS 최근안전성인증일, First(T.자체중량) AS 자체중량, First(T.최대이륙중량) AS 최대이륙중량, " & _
+          "First(T.[최근안전성인증일]) AS 최근안전성인증일, First(T.자체중량) AS 자체중량, First(T.최대이륙중량) AS 최대이륙중량, " & _
           "First(T.비행장소) AS 비행장소, " & _
           "Count(*) AS 비행회수, " & _
           "Round(Sum(T.비행시간_분)/60, 1) AS 비행시간_합계, " & _
